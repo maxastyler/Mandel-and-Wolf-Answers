@@ -1,0 +1,29 @@
+\documentclass[12pt]{article}
+
+\begin{document}
+\section{Q1}
+\subsection{a}
+Probability distribution of x and y, use 
+\begin{equation}
+	P(x) = \sum_i \frac{p(g_i(x))}{| f'(g_i(x)) |}
+\end{equation}
+We have $x=f(\phi) = a\cos\phi$, $g_1(x) = \arccos(\frac{x}{a})$, 
+$g_2(x) =2\pi- \arccos(\frac{x}{a})$, $|f'(\phi)|=|a\sin\phi|= |a\sqrt{1-\cos^2\phi}|$ 
+So:
+\begin{equation}
+	P(x) = \frac{1}{\pi\sqrt{a^2-x^2}}
+\end{equation}
+And the same for $P_x(x) = P_y(y)$ from symmetry.
+\subsection{b}
+For the join probability distribution, we can use 
+\begin{equation}
+	p(x, y) = \mathcal{P}(x|y)p(y)
+\end{equation}
+Where $\mathcal{P}(x|y)=\frac{1}{2}\delta(x^2+y^2-a^2)$, so:
+\begin{equation}
+	p(x, y) = \frac{\delta(x^2+y^2-a^2)}{2\pi\sqrt{(a^2-y^2)}}
+\end{equation}
+\subsection{c}
+The covariance of x and y is: $\left<\Delta x \Delta y\right>=\left<(x-\left<x\right>)(y-\left<y\right>)\right>=\left<xy\right>-\left<x\right>\left<y\right>$ Which is zero because the probability distribution $p(x)$ is even.
+
+\end{document}
