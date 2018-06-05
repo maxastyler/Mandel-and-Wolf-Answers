@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage{amsmath}
 
 \begin{document}
 \section{Q1}
@@ -25,5 +26,45 @@ Where $\mathcal{P}(x|y)=\frac{1}{2}\delta(x^2+y^2-a^2)$, so:
 \end{equation}
 \subsection{c}
 The covariance of x and y is: $\left<\Delta x \Delta y\right>=\left<(x-\left<x\right>)(y-\left<y\right>)\right>=\left<xy\right>-\left<x\right>\left<y\right>$ Which is zero because the probability distribution $p(x)$ is even.
+\\
+The distributions are statistically dependent since $p(x, y)\neq p(x)p(y)$.
+\section{Q2}
+The characteristic function of the random variable $x$ is:
 
+\begin{equation}
+	C(\xi) = 
+	\begin{cases}
+		\frac{b+\xi}{b-a} & -b<\xi\leq-a \\
+		1 & a-<\xi\leq a\\
+		\frac{b-\xi}{b-a} & a<\xi\leq b \\
+		0 & \text{Otherwise}
+	\end{cases}
+\end{equation}
+Can get the probability distribution as the fourier transform of this:
+\begin{equation}
+	p(x) = \frac{1}{2\pi}\int e^{-i\xi x}C(\xi)d\xi
+\end{equation}
+Since $C(\xi)$ is even, only the even part of the exponential contributes, so we need to perform the integral:
+\begin{equation}
+	p(x) = \frac{1}{2\pi}\int_{-b}^b C(\xi)\cos(x\xi)d\xi
+\end{equation}
+Perform the integral over the 3 parts, giving:
+\begin{equation}
+	p(x) = \frac{\cos(ax)-\cos(bx)}{\pi(b-a)x^2}
+\end{equation}
+\section{Q3}
+Probability of $m$ failures and $n$ successes, with last trial ending in success. Probability of a success is $\alpha$.
+\begin{equation}
+	p(m, n) = \left(\begin{matrix}m+n-1\\m\end{matrix}\right)(1-\alpha)^m\alpha^n
+\end{equation}
+The r'th factorial moment of $m$ for fixed $n$ is
+\begin{align*}
+	\left<m^{(r)}\right>=\frac{d^r}{d\xi^r}\left<(1+\xi)^m\right>\Big |_{\xi=0} \\
+			    =\frac{d^r}{d\xi^r}\sum_{m=0}^\infty (1+\xi)^m \left(\begin{matrix}m+n-1\\m\end{matrix}\right)(1-\alpha)^m\alpha^n\Big|_{\xi=0} \\
+			    =\alpha^n\frac{d^r}{d\xi^r}\sum_{m=0}^\infty\left(\begin{matrix}-n\\m\end{matrix}\right)(\alpha-1+\alpha\xi-\xi)^m\Big|_{\xi=0} \\
+			    =\alpha^n \frac{d^r}{d\xi^r}(\alpha+\alpha\xi-\xi)^{-n}\Big|_{\xi=0} \\
+			    =\alpha^n (1-\alpha)^r\alpha^{1-n-r}\frac{(n+r-1)!}{(n-1)!} \\
+			    =\alpha^{1-r}(1-\alpha)^r\frac{(n+r-1)!}{(n-1)!}
+\end{align*}
+Where from the 3rd to the 4th line the binomial expansion is used.
 \end{document}
