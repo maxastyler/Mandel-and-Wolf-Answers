@@ -1,5 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{amsmath}
+\usepackage{subfig}
+\usepackage{svg}
 
 \begin{document}
 \section*{Q1}
@@ -103,5 +105,41 @@ And the covariance matrix is:
 \begin{equation}
 	\mu = \frac{1}{12}\left(\begin{matrix}1 & -1 \\ -1 & 1\end{matrix}\right)
 \end{equation}
-
+\section*{Q5}
+The $\chi^2$ value is given by:
+\begin{equation}
+	\chi^2 = \sum_i \left(\frac{X_i-\mu}{\sigma_i}\right)^2
+\end{equation}
+Where $X_i$ are the values measured, $\mu$ is the average, or expected value and $\sigma_i$ are the errors.
+With the null hypothesis being the student gathered the values ``legally'', we say $\mu=981\text{cm/s$^2$}$ and the error is $1\%$ of this, so $\sigma=9.81\text{cm/s$^2$}$. The $\chi^2$ value is 0.05. The test has 4 degrees of freedom, and so a value of $\chi^2=0.05$ or higher has a probability $p>0.995$. The student probably didn't cheat.
+\section*{Q6}
+From n people, the probability of at least two people sharing a birthday is $p(n)=1-\bar{p(n)}$ where $\bar{p(n)}$ is the probability of no people sharing a birthday. $\bar{p(n)}$ is the number of ways to choose $n$ separate days from $365$, $\left(\begin{matrix}365 \\ n\end{matrix}\right)$ divided by the total number of ways they could be arranged, $\frac{365^n}{n!}$. We have:
+\begin{align*}
+	p(n) = 1-\frac{n!\left(\begin{matrix}365\\n\end{matrix}\right)}{365^n}\\
+	= 1-\frac{365!}{365^n(365-n)!}\\
+	=1-\left(1-\frac{0}{365}\right)\left(1-\frac{1}{365}\right)\mathellipsis\left(1-\frac{n-1}{365}\right)
+\end{align*}
+We can use the first order expansion $e^{-x}\approx 1-x$ to replace the terms in the product with exponentials:
+\begin{align}
+	p(n)\approx 1-e^{-\frac{0}{365}}e^{-\frac{1}{365}}\mathellipsis e^{-\frac{n-1}{365}}\\
+	=1-\exp\left(-\frac{1}{365}\sum_{i=1}^n(i-1)\right)\\
+	=1-\exp\left(-\frac{1}{365}\frac{n^2-n}{2}\right)\\
+	=1-\exp\left(\frac{n-n^2}{730}\right)
+\end{align}
+Which was to be shown.
+The number of people required for the probability of people sharing a birthday to be $>\frac{1}{2}$ is given by solving:
+\begin{align}
+	p(n) > \frac{1}{2}\\
+	1-\exp\left(\frac{n-n^2}{730}\right)>\frac{1}{2}\\
+	\exp\left(\frac{n-n^2}{730}\right)<\frac{1}{2}\\
+	n^2-n-730\ln(2)>0
+\end{align}
+The smallest integer that satisfies this is $n=23$.
+\section{Q7}
+\begin{figure}
+\centering
+\subfloat{\includesvg[width=0.8\textwidth]{./bayes_graphs.svg}
+}\qquad
+\caption{Probability distributions of $q$ for different values of $N$}
+\end{figure}
 \end{document}
