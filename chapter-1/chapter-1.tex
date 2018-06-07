@@ -136,10 +136,30 @@ The number of people required for the probability of people sharing a birthday t
 \end{align}
 The smallest integer that satisfies this is $n=23$.
 \section{Q7}
+We want to find the probability distribution of $q$, $\mathcal{P}(q|N)$, the probability for the system to be in state $A$ given that $A$ was found $N$ times from the $2N$ trials.
+This can be found using Bayes' theorem:
+\begin{align}
+	\mathcal{P}(q|N) = \frac{\mathcal{P}'(N|q)p(q)}{p(N)} = \frac{\mathcal{P}'(N|q)p(q)}{\int_0^1\mathcal{P}'(N|q)p(q)dq}
+\end{align}
+Since we have no prior knowledge about $q$, we have $p(q)=1$. $\mathcal{P}'(N|q)$ is given by the binomial distribution: 
+\begin{equation}
+	\mathcal{P}'(N|q)=\left(\begin{matrix}2N\\N\end{matrix}\right)q^N(1-q)^N
+\end{equation}
+The integral $\int_0^1q^N(1-q)^Ndq$ can be performed by repeated integration by parts to get:
+\begin{equation}
+	\int_0^1q^N(1-q)^Ndq = \left((2N+1)\left(\begin{matrix}2N\\N\end{matrix}\right)\right)^{-1}
+\end{equation}
+And we have:
+\begin{equation}
+	\mathcal{P}'(q|N) = (2N+1)\left(\begin{matrix}2N\\N\end{matrix}\right)q^N(1-q)^N
+\end{equation}
+Which is plotted for different values of $N$ in figure \ref{fig:bayes_prob_dists}.
 \begin{figure}
 \centering
 \subfloat{\includesvg[width=0.8\textwidth]{./bayes_graphs.svg}
 }\qquad
 \caption{Probability distributions of $q$ for different values of $N$}
+\label{fig:bayes_prob_dists}
 \end{figure}
+\section{Q8}
 \end{document}
