@@ -2,6 +2,7 @@
 \usepackage{amsmath}
 \usepackage{subfig}
 \usepackage{svg}
+\usepackage{amssymb}
 
 \begin{document}
 \section*{Q1}
@@ -30,7 +31,7 @@ Where $\mathcal{P}(x|y)=\frac{1}{2}\delta(x^2+y^2-a^2)$, so:
 The covariance of x and y is: $\left<\Delta x \Delta y\right>=\left<(x-\left<x\right>)(y-\left<y\right>)\right>=\left<xy\right>-\left<x\right>\left<y\right>$ Which is zero because the probability distribution $p(x)$ is even.
 \\
 The distributions are statistically dependent since $p(x, y)\neq p(x)p(y)$.
-\section{Q2}
+\section*{Q2}
 The characteristic function of the random variable $x$ is:
 
 \begin{equation}
@@ -135,7 +136,7 @@ The number of people required for the probability of people sharing a birthday t
 	n^2-n-730\ln(2)>0
 \end{align}
 The smallest integer that satisfies this is $n=23$.
-\section{Q7}
+\section*{Q7}
 We want to find the probability distribution of $q$, $\mathcal{P}(q|N)$, the probability for the system to be in state $A$ given that $A$ was found $N$ times from the $2N$ trials.
 This can be found using Bayes' theorem:
 \begin{align}
@@ -161,5 +162,38 @@ Which is plotted for different values of $N$ in figure \ref{fig:bayes_prob_dists
 \caption{Probability distributions of $q$ for different values of $N$}
 \label{fig:bayes_prob_dists}
 \end{figure}
-\section{Q8}
+\section*{Q8}
+Let $X_n$ be the probability of falling off the cliff when $n$ steps away, $\alpha$ be the probability that the lad steps toward the cliff-edge. We know $X_0$ = 1, and that:
+\begin{equation}
+	X_n=\alpha X_{n-1} + (1-\alpha) X_{n+1}
+\end{equation}
+If we look at $X_1$ specifically:
+\begin{equation}
+		X_1=\alpha+(1-\alpha)X_2
+\end{equation}
+And we know that the probability of falling from each point is given by $X_n=X_1^{n}$, so we have an algebraic equation for $X_1$:
+\begin{align}
+	X_1=\alpha+(1-\alpha)X_1^2
+\end{align}
+Which gives:
+\begin{equation}
+	X_1=1,\frac{\alpha}{1-\alpha}
+\end{equation}
+And the probability of falling off at $n$ steps is:
+\begin{equation}
+	X_n = \left(\frac{\alpha}{1-\alpha}\right)^n
+\end{equation}
+\section*{Q9}
+We have probability distribution:
+\begin{equation}
+	p(\mathbf{x}) = \frac{1}{(2\pi)^{\frac{N}{2}}\det{\mu}^{\frac{1}{2}}}\exp{\left(-\frac{1}{2}\mathbf{x}^\dag\mu^{-1}\mathbf{x}\right)}
+\end{equation}
+We have a transformation to $\mathbf{y}=U\mathbf{x}$ with $U$ being unitary. The transformation leaves $\det{\tilde\mu}=\det{U\mu U^\dag}=\det{U}\det{\mu}\det{U^\dag}=\det{\mu}$ the same, and we have $\mathbf{x^\dag}\mu^{-1}\mathbf{x}=\mathbf{y^\dag}\tilde\mu^{-1}\mathbf{y}$
+Calculating:
+\begin{align}
+(1-\rho^2)\tilde\mu = \left(\begin{matrix}\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{matrix}\right) 
+\left(\begin{matrix}\frac{1}{\sigma_x^2} & -\frac{1}{\sigma_x\sigma_y} \\ - \frac{1}{\sigma_x\sigma_y} & \frac{1}{\sigma_y^2}\end{matrix} \right)
+\left( \begin{matrix}\cos\theta & \sin\theta \\ -\sin\theta & \cos\theta\end{matrix}\right)
+\end{align}
+Which has diagonal form if $\sin\theta\cos\theta=0$, so $\theta=\frac{n\pi}{2}, n\in\mathcal \mathbb{N}$
 \end{document}
