@@ -110,7 +110,7 @@ The $\chi^2$ value is given by:
 Where $X_i$ are the values measured, $\mu$ is the average, or expected value and $\sigma_i$ are the errors.
 With the null hypothesis being the student gathered the values ``legally'', we say $\mu=981\text{cm/s$^2$}$ and the error is $1\%$ of this, so $\sigma=9.81\text{cm/s$^2$}$. The $\chi^2$ value is 0.05. The test has 4 degrees of freedom, and so a value of $\chi^2=0.05$ or higher has a probability $p>0.995$. The student probably didn't cheat.
 \subsection{Q6}
-From n people, the probability of at least two people sharing a birthday is $p(n)=1-\bar{p(n)}$ where $\bar{p(n)}$ is the probability of no people sharing a birthday. $\bar{p(n)}$ is the number of ways to choose $n$ separate days from $365$, $\left(\begin{matrix}365 \\ n\end{matrix}\right)$ divided by the total number of ways they could be arranged, $\frac{365^n}{n!}$. We have:
+From n people, the probability of at least two people sharing a birthday is $p(n)=1-\bar{p(n)}$ where $\bar{p(n)}$ is the probability of no people sharing a birthday. $\bar{p(n)}$ is the number of ways to choose $n$ separate days from $365$, $\left(\begin{matrix}365 \\ n\end{matrix}\right)$ divided by the total number of ways those $n$ days could be distributed to different people, $\frac{365^n}{n!}$. We have:
 \begin{align*}
 	p(n) = 1-\frac{n!\left(\begin{matrix}365\\n\end{matrix}\right)}{365^n}\\
 	= 1-\frac{365!}{365^n(365-n)!}\\

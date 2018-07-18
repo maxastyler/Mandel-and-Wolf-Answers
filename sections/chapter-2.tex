@@ -2,5 +2,43 @@
 
 \begin{document}
 \subsection{Q1}
+Have the complex random process:
+\begin{equation}
+	z(t) = u(t) + v
+\end{equation}
+Where $u(t)$ is a complex stationary random process and $v$ is a random time independent variable independent of $u(t)$. 
+\subsubsection{(a)}
+For $z(t)$ to be stationary, we need $\langle z(t)\rangle$ to be independent of $t$ and $\Gamma(t_1, t_2)$ to be only dependent on $t_2-t_1$. \\
+For the first condition:
+\begin{equation}
+	\langle z(t) \rangle = \langle u(t) + v\rangle = \langle u(t) \rangle + \langle v \rangle
+\end{equation}
+Since $u(t)$ is stationary, and $v$ is time independent, then $\langle z(t) \rangle$ is obviously time independent. \\
+For the second condition:
+\begin{equation}
+	\Gamma (t_1, t_2) = \langle z^*(t_1)z(t_2) \rangle = \langle u^*(t_1)u(t_2) \rangle + \langle u^*(t_1)v \rangle + \langle v^*u(t_2) \rangle + \langle v^*v \rangle
+\end{equation}
+We have:
+\begin{equation}
+	\langle u^*(t_1)u(t_2) \rangle = \Gamma'(t_2-t_1)
+\end{equation}
+Since $u(t)$ is a stationary process.
+\begin{equation}
+	\langle u^*(t_1) v \rangle = \int u^* v p_2(u, t_1; v, t_2)d^2ud^2v = \int u^* p_1(u, t_1)vp_1'(v, t_2)d^2ud^2v = \langle u^*(t_1) \rangle \langle v \rangle
+\end{equation}
+Which is time independent, and therefore $\Gamma(t_1, t_2)$ only depends on the difference $t_2-t_1$.
+
 \subsection{Q2}
+The characteristic function of the multivariate gaussian distribution is:
+\begin{equation}
+	C(\xi_1, \xi_2, \xi_3, \mathellipsis) = e^{i\mathbf{\xi^{\mu\dag}}\langle x_\mu\rangle}e^{-\frac{1}{2}\xi^{\alpha\dag}\mu_{\alpha\beta}\xi^{\beta}}
+\end{equation}
+Where $\mu_{\alpha\beta}=\langle \Delta x_\alpha\Delta x_\beta \rangle$ is the covariance matrix. Since the mean of the distribution is $0$, we have $\Delta x = x$ and $C(\mathellipsis)=e^{-\frac{1}{2}\xi^{\alpha\dag}\mu_{\alpha\beta}\xi^{\beta}}$. If we now sample continuous points, instead of discrete points, we take an integral rather than the sum over the covariance matrix points.
+\begin{equation}
+	\sum_{\alpha,\beta}\xi^{\alpha \dag}\mu_{\alpha\beta}\xi^{\beta} \rightarrow \iint_{-\infty}^{\infty} y(t_1)\langle x(t_1)x(t_2)\rangle y(t_2) dt_1 dt_2
+\end{equation}
+Therefore:
+\begin{equation}
+	C(\{y(t)\}) = \exp{\left(-\frac{1}{2}\iint_{-\infty}^{\infty}y(t_1)y(t_2)\Gamma(t_1, t_2)dt_1dt_2\right)}
+\end{equation}
 \end{document}
