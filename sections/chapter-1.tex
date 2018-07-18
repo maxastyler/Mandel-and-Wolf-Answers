@@ -1,8 +1,8 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\section*{Q1}
-\subsection*{(a)}
+\subsection{Q1}
+\subsubsection*{(a)}
 Probability distribution of x and y, use 
 \begin{equation}
 	P(x) = \sum_i \frac{p(g_i(x))}{| f'(g_i(x)) |}
@@ -14,7 +14,7 @@ So:
 	P(x) = \frac{1}{\pi\sqrt{a^2-x^2}}
 \end{equation}
 And the same for $P_x(x) = P_y(y)$ from symmetry.
-\subsection*{(b)}
+\subsubsection*{(b)}
 For the join probability distribution, we can use 
 \begin{equation}
 	p(x, y) = \mathcal{P}(x|y)p(y)
@@ -23,11 +23,11 @@ Where $\mathcal{P}(x|y)=\frac{1}{2}\delta(x^2+y^2-a^2)$, so:
 \begin{equation}
 	p(x, y) = \frac{\delta(x^2+y^2-a^2)}{2\pi\sqrt{(a^2-y^2)}}
 \end{equation}
-\subsection*{(c)}
+\subsubsection*{(c)}
 The covariance of x and y is: $\left<\Delta x \Delta y\right>=\left<(x-\left<x\right>)(y-\left<y\right>)\right>=\left<xy\right>-\left<x\right>\left<y\right>$ Which is zero because the probability distribution $p(x)$ is even.
 \\
 The distributions are statistically dependent since $p(x, y)\neq p(x)p(y)$.
-\section*{Q2}
+\subsection{Q2}
 The characteristic function of the random variable $x$ is:
 
 \begin{equation}
@@ -51,7 +51,7 @@ Perform the integral over the 3 parts, giving:
 \begin{equation}
 	p(x) = \frac{\cos(ax)-\cos(bx)}{\pi(b-a)x^2}
 \end{equation}
-\section*{Q3}
+\subsection{Q3}
 Probability of $m$ failures and $n$ successes, with last trial ending in success. Probability of a success is $\alpha$.
 \begin{equation}
 	p(m, n) = \left(\begin{matrix}m+n-1\\m\end{matrix}\right)(1-\alpha)^m\alpha^n
@@ -66,15 +66,15 @@ The r'th factorial moment of $m$ for fixed $n$ is
 			    =\alpha^{1-r}(1-\alpha)^r\frac{(n+r-1)!}{(n-1)!}
 \end{align*}
 Where from the 3rd to the 4th line the binomial expansion is used.
-\section*{Q4}
+\subsection{Q4}
 Let $x$ be the position of the division and $a$ and $b$ be the lengths of the first and second parts of the divided line. The probability distribution of $x$ is $p(x)=1$.
-\subsection*{(a)}
+\subsubsection*{(a)}
 The average length of $a$ is:
 \begin{align*}
 	\left<a\right> = \int_0^1a p(a)da = \left[\frac{a^2}{2}\right]^1_0 = \frac{1}{2}
 \end{align*}
 From symmetry the length of $b$ is the same.
-\subsection*{(b)}
+\subsubsection*{(b)}
 The average ratio of shorter to longer is given by:
 \begin{align*}
 	\left<\text{average ratio}\right> = \int_0^{\frac{1}{2}} \frac{a}{1-a}da + \int_{\frac{1}{2}}^1\frac{1-a}{a}da\\
@@ -84,7 +84,7 @@ The average ratio of shorter to longer is given by:
 	=-2\ln\left(\frac{1}{2}\right)-1\\
 	=\ln(4)-1
 \end{align*}
-\subsection*{(c)}
+\subsubsection*{(c)}
 For the covariance matrix $\mu_{ij} = \left(\begin{matrix}\left<(\Delta a)^2\right> & \left<\Delta a\Delta b\right> \\ \left<\Delta b\Delta a\right> & \left<(\Delta b)^2\right>\end{matrix}\right)$, we only need to calculate $\left<(\Delta a)^2\right>$ and $\left<\Delta a\Delta b\right>$ because of the symmetry between $a$ and $b$. 
 \begin{align*}
 	\left<(\Delta a)^2\right> = \left<a^2\right> - \left<a\right>^2 = \int_0^1a^2da - \frac{1}{4} = \frac{1}{12}
@@ -102,14 +102,14 @@ And the covariance matrix is:
 \begin{equation}
 	\mu = \frac{1}{12}\left(\begin{matrix}1 & -1 \\ -1 & 1\end{matrix}\right)
 \end{equation}
-\section*{Q5}
+\subsection{Q5}
 The $\chi^2$ value is given by:
 \begin{equation}
 	\chi^2 = \sum_i \left(\frac{X_i-\mu}{\sigma_i}\right)^2
 \end{equation}
 Where $X_i$ are the values measured, $\mu$ is the average, or expected value and $\sigma_i$ are the errors.
 With the null hypothesis being the student gathered the values ``legally'', we say $\mu=981\text{cm/s$^2$}$ and the error is $1\%$ of this, so $\sigma=9.81\text{cm/s$^2$}$. The $\chi^2$ value is 0.05. The test has 4 degrees of freedom, and so a value of $\chi^2=0.05$ or higher has a probability $p>0.995$. The student probably didn't cheat.
-\section*{Q6}
+\subsection{Q6}
 From n people, the probability of at least two people sharing a birthday is $p(n)=1-\bar{p(n)}$ where $\bar{p(n)}$ is the probability of no people sharing a birthday. $\bar{p(n)}$ is the number of ways to choose $n$ separate days from $365$, $\left(\begin{matrix}365 \\ n\end{matrix}\right)$ divided by the total number of ways they could be arranged, $\frac{365^n}{n!}$. We have:
 \begin{align*}
 	p(n) = 1-\frac{n!\left(\begin{matrix}365\\n\end{matrix}\right)}{365^n}\\
@@ -132,7 +132,7 @@ The number of people required for the probability of people sharing a birthday t
 	n^2-n-730\ln(2)>0
 \end{align}
 The smallest integer that satisfies this is $n=23$.
-\section*{Q7}
+\subsection{Q7}
 We want to find the probability distribution of $q$, $\mathcal{P}(q|N)$, the probability for the system to be in state $A$ given that $A$ was found $N$ times from the $2N$ trials.
 This can be found using Bayes' theorem:
 \begin{align}
@@ -158,7 +158,7 @@ Which is plotted for different values of $N$ in figure \ref{fig:bayes_prob_dists
 \caption{Probability distributions of $q$ for different values of $N$}
 \label{fig:bayes_prob_dists}
 \end{figure}
-\section*{Q8}
+\subsection{Q8}
 Let $X_n$ be the probability of falling off the cliff when $n$ steps away, $\alpha$ be the probability that the lad steps toward the cliff-edge. We know $X_0$ = 1, and that:
 \begin{equation}
 	X_n=\alpha X_{n-1} + (1-\alpha) X_{n+1}
@@ -179,7 +179,7 @@ And the probability of falling off at $n$ steps is:
 \begin{equation}
 	X_n = \left(\frac{\alpha}{1-\alpha}\right)^n
 \end{equation}
-\section*{Q9}
+\subsection{Q9}
 We have probability distribution:
 \begin{equation}
 	p(\mathbf{x}) = \frac{1}{(2\pi)^{\frac{N}{2}}\det{\mu}^{\frac{1}{2}}}\exp{\left(-\frac{1}{2}\mathbf{x}^\dag\mu^{-1}\mathbf{x}\right)}
