@@ -41,4 +41,18 @@ Therefore:
 \begin{equation}
 	C(\{y(t)\}) = \exp{\left(-\frac{1}{2}\iint_{-\infty}^{\infty}y(t_1)y(t_2)\Gamma(t_1, t_2)dt_1dt_2\right)}
 \end{equation}
+\subsection{Q3}
+\begin{eqnarray}
+	\Gamma_{yy}(t_1, t_2) = \langle y_1(t_1)y_2(t_1)\rangle =
+	\left\langle \frac{1}{2T}\int_{t_1-T}^{t_1+T} x_1(t_1')dt_1' \frac{1}{2T}\int_{t_2-T}^{t_2+T} x_2(t_2')dt_2'\right\rangle \\
+	= \frac{1}{4T^2} \int_{t_1-T}^{t_1+T}dt_1'\int_{t_2-T}^{t_2+T}dt_2'\langle x_1(t_1')x_2(t_2')\rangle \\
+	= \frac{1}{4T^2} \int_{t_1-T}^{t_1+T}dt_1'\int_{t_2-T}^{t_2+T}dt_2' \Gamma_{xx}(t_1', t_2')
+= \frac{1}{4T^2} \int_{t_1-T}^{t_1+T}dt_1'\int_{t_2-T}^{t_2+T}dt_2' \Gamma_{xx}(t_2'-t_1')
+\end{eqnarray}
+With the last equality because $x(t)$ is wide sense stationary. We can transform this integral by considering the lines of constant $t_2'-t_1'$ in the $2T\times2T$ square around $t_1, t_2$. We use the variables $\tau=t_2-t_1$, which gives the centre of the square and $\tau'$ which is the variable we integrate over. The lines integrated over have length $\sqrt2\left(2T-\left| \tau'\right|\right)$ and width $\frac{1}{\sqrt2}d\tau'$. The integral becomes:
+\begin{eqnarray}
+	\Gamma_{yy}(\tau) = \frac{1}{2T}\int_{-2T}^{2T}\left( 1-\frac{\left|\tau'\right|}{2T}\right)\Gamma_{xx}(\tau-\tau')d\tau'
+\end{eqnarray}
+
+\subsection{Q4}
 \end{document}
